@@ -19,8 +19,10 @@ Have at least 2 people test your code to make sure it works"""
 #Goal Function
 def savings_goal():
     #While loop stupid proof
+    while True:
         #Goal is set to user input for save goal
-        goal = float(input("Enter your savings goal: "))
+        goal = int(input("Enter your savings goal: "))
+        if goal 
        # User input to choose if they want to save weekly or monthly
         week_or_mon = input("Do you want to save weekly or monthly? ")
         #IF week_or_mon is 'weekly'
