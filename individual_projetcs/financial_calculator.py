@@ -235,29 +235,29 @@ def tip_calculator():
     print(f"The tip amount is: ${tip:.2f}")
 #Main Loop Function
 def main_loop():
-    #Display the main menu
-    print("Financial Calculator Opened")
-    #Display options
-    print("1. Savings Goal Calculator")
-    print("2. Compound Interest Calculator")
-    print("3. Budget Allocator")
-    print("4. Sale Price Calculator")
-    print("5. Tip Calculator")
-    print("6. Exit")
-    choice = input("Enter your choice: ")
-    if choice == "1":
-        savings_goal()
-    elif choice == "2":
-        compound_interest()
-    elif choice == "3":
-        budget_allocator()
-    elif choice == "4":
-        sale_price()
-    elif choice == "5":
-        tip_calculator()
-    elif choice == "6":
-        print("Exiting...")
-        return
-    else:
-        print("Invalid choice. Please try again.")
+    while True:
+        print("\nFinancial Calculator Menu")
+        #Display options
+        print("1. Savings Goal Calculator")
+        print("2. Compound Interest Calculator")
+        print("3. Budget Allocator")
+        print("4. Sale Price Calculator")
+        print("5. Tip Calculator")
+        print("6. Exit")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            savings_goal()
+        elif choice == "2":
+            compound_interest()
+        elif choice == "3":
+            budget_allocator()
+        elif choice == "4":
+            sale_price()
+        elif choice == "5":
+            tip_calculator()
+        elif choice == "6":
+            print("Exiting...")
+            return
+        else:
+            print("Invalid choice. Please try again.")
 main_loop()
