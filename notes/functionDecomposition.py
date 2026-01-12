@@ -1,3 +1,4 @@
+#TE 2nd Function Decomposition
 #Normal Function before decorator
 def choose_letter(letter):
     print("You chose:", letter)
