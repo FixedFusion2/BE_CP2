@@ -109,19 +109,18 @@ def compound_interest():
                 print("Years must be greater than 0.")
         else:
             print("Please enter numbers only.")
-
-        #Calculate compound interest
-        def calc_com_int():
-            #amount is set to startmount * (1 + rate / 100) ** years
-            amount = start_amount * (1 + rate / 100) ** years
-            #compount interest is set to amount - start_amount
-            compound_interest = amount - start_amount
-            #Return compound interest
-            return compound_interest\
-            #print compound interest
-        print("Your compound interest is:", calc_com_int())
+    #Calculate compound interest
+    def calc_com_int():
+        #amount is set to startmount * (1 + rate / 100) ** years
+        amount = start_amount * (1 + rate / 100) ** years
+        #compount interest is set to amount - start_amount
+        compound_interest = amount - start_amount
+        #Return compound interest
+        return compound_interest
+        #print compound interest
+    print("Your compound interest is:", calc_com_int())
         #print("Total money gained")
-        print("The total amount after", years, "years is:", start_amount + calc_com_int())
+    print("The total amount after", years, "years is:", start_amount + calc_com_int())
 #Budget Allocator Function
 def budget_allocator():
     #while loop stupid proof
