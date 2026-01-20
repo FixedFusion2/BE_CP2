@@ -16,54 +16,69 @@ search for a specific item (by title, author/artist/director), remove a book fro
 #Stores all items in a list
 library_catalog = []
 #Function to add a new item
-def add_books():
+def add_book():
         #Print prompt to add books to the library
         print("\nAdd a book to your library.")
         #Add book is set to an input to enter a book title.
-        add_book = input("\nEnter book title: ").title()
-        enter_author = input("Enter author: ").title()
+        title = input("\nEnter book title: ").strip().title()
+        author = input("Enter author: ").strip().title()
+        if title == "" or author == "":
+            print("\nBook title and author cannot be empty.")
+            return
         #Add book to library catalog
-        library_catalog.append((add_book, enter_author))
+        library_catalog.append({'title': title, 'author': author})
         #Print that the book has been added to your library
-        print(f"\n'{add_book}' by {enter_author} has been added to your library.")
+        print(f"\n'{title}' by {author} has been added to your library.")
 
 #Function to search the items
 def search_book():
+    if not library_catalog:
+        print("\nYour library is empty. Please add books first.")
+        return
     #Print prompt to search for a book in the library
     print("\nWhat would you like to search by?")
     print("1. Title")
     print("2. Author")
     search_choice = input("\nEnter your choice: ")
     if search_choice == "1":
-        print("\nEnter book title: ")
+        search_term = input("\nEnter book title: ").strip().title()
+        found = False
+        for book in library_catalog:
+            if book['title'] == search_term:
+                print(f"\n'{book['title']}' by {book['author']} is in your library.")
+                found = True
+                break
+        if not found:
+            print(f"\n'{search_term}' is not in your library.")
     elif search_choice == "2":
-        print("\nEnter author: ")
-    #Search book is set to an input to enter a book title.
-    search_book = input("\nEnter book title: ").title()
-    #Check if the book is in the library catalog
-    if search_book in library_catalog:
-        #Print that book is in library if in library
-        print(f"\n'{search_book}' is in your library.")
+        search_term = input("\nEnter author: ").strip().title()
+        found = False
+        for book in library_catalog:
+            if book['author'] == search_term:
+                print(f"\n'{book['title']}' by {book['author']} is in your library.")
+                found = True
+                break
+        if not found:
+            print(f"\n'{search_term}' is not in your library.")
     else:
-        #Print that book is not in library if not in library
-        print(f"\n'{search_book}' is not in your library.")
-
+        print("Invalid choice. Please try again.")
+        return
 #Function to remove an item
 def remove_book():
+    if not library_catalog:
+        print("\nYour library is empty. Please add books first.")
+        return
     #Print prompt to remove a book from the library
     print("\nRemove a book from your library.")
     #Remove book is set to an input to enter a book title.
-    remove_book = input("\nEnter book title: ").title()
+    title= input("\nEnter book title: ").strip().title()
     #Check if the book is in the library catalog
-    if remove_book in library_catalog:
-        #Remove book from library catalog
-        library_catalog.remove(remove_book)
-        #Print that book has been removed from library
-        print(f"\n'{remove_book}' has been removed from your library.")
-    else:
-        #Print that book is not in library if not in library
-        print(f"\n'{remove_book}' is not in your library.")
-
+    for book in library_catalog:
+        if book['title'] == title:
+            library_catalog.remove(book)
+            print(f"\n'{title}' has been removed from your library.")
+            return
+    print(f"\n'{title}' is not in your library.")       
 #View Function
 def view_books():
     #Print all books in the library
@@ -72,7 +87,7 @@ def view_books():
         print("No books found.")
     else:
         for book in library_catalog:
-            print(f"- {book}")
+            print(f"'{book['title']}' by {book['author']}")
 
 #Function that runs the code (displays the menu options inside and calls the functions inside of a while True loop)
 def menu():
@@ -90,11 +105,11 @@ def menu():
         print("4. View Books")
         #Print 5. Exit
         print("5. Exit")
-        menu_choice = input("\nEnter your choice: ")
+        menu_choice = input("\nEnter your choice: ").strip()
         #Call the appropriate function based on user choice
         #If 1, add books
         if menu_choice == "1":
-            add_books()
+            add_book()
         #If 2, search for books
         elif menu_choice == "2":
             search_book()
@@ -109,7 +124,7 @@ def menu():
             print("Exiting the program.")
             break
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please enter a number between 1 and 5.")
     
 #Call the menu function again to display the options
 menu()
