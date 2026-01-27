@@ -1,8 +1,8 @@
 #TE 2nd Morse Code Translator
 #List for alphabet
-alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "]
 #List for morse code
-morse_code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","..-","...-",".--","-..-","-.--","--.."]
+morse_code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","..-","...-",".--","-..-","-.--","--..","/"]
 #Menu Function
 def menu():
     while True:
@@ -35,7 +35,7 @@ def morse_to_english():
     #While loop for user input
     while True:
         #Morse input is set to an input telling the user to enter the morse code separated by spaces
-        morse_input = input("Enter Morse code (separated by spaces) or 'back' to return to the menu: ")
+        morse_input = input("Enter Morse code (space separated) or 'back' to return to the menu: ")
         #If morse_input is "back"
         if morse_input.lower() == "back":
             #Run menu
