@@ -1,8 +1,8 @@
 #TE 2nd Morse Code Translator
 #List for alphabet
-alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "]
+alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 #List for morse code
-morse_code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","..-","...-",".--","-..-","-.--","--..","/"]
+morse_code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
 #Menu Function
 def menu():
     while True:
@@ -10,10 +10,12 @@ def menu():
         print("1. Translate for Morse Code to English")
         #Print 2. Translate for English to Morse Code
         print("2. Translate for English to Morse Code")
-        #Print 3. Exit
-        print("3. Exit")
+        #Print 3. View Morse Code
+        print("3. View Morse Code Alphabet")
+        #View Morse Code Alphabet
+        print("4. Exit")
         #Option is set to an input asking for the user to choose an option, 1-3.
-        option = input("Choose an option (1-3): ")
+        option = input("Choose an option (1-4): ")
         #Match Option
         match option:
             #If user selects 1 run morse_to_english
@@ -24,8 +26,14 @@ def menu():
                 english_to_morse()
             #If user selects 3 exit
             case "3":
+                for i in range(len(alphabet)):
+                    print(f"{alphabet[i].upper()} = {morse_code[i]}")
+                go_back = input('Would you like to go back to the menu? (yes/no): ').lower()
+                if go_back == "yes":
+                    menu()
+            case "4":
                 print("Exiting...")
-                break
+                exit()
             #If user selects an invalid option
             case _:
                 print("Invalid option. Please try again.")
@@ -73,13 +81,15 @@ def english_to_morse():
         morse_output = ""
         #For loop for char in english_input
         for char in english_input:
+            if char == " ":
+                morse_output += "/"
             #If char is in alphabet
             if char in alphabet:
                 #Morse output is added to the output string
                 morse_output += morse_code[alphabet.index(char)] + " "
             else:
-                #If invalid output
                 morse_output += "?"
+
         #Print Morse output
         print("Morse code translation:", morse_output)
 menu()
