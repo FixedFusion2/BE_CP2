@@ -42,8 +42,8 @@ def menu():
 def morse_to_english():
     #While loop for user input
     while True:
-        #Morse input is set to an input telling the user to enter the morse code separated by spaces
-        morse_input = input("Enter Morse code (space separated) or 'back' to return to the menu: ")
+        #Morse input is set to an input telling the user to enter the morse code
+        morse_input = input("Enter Morse code or 'back' to return to the menu: ")
         #If morse_input is "back"
         if morse_input.lower() == "back":
             #Run menu
@@ -70,7 +70,7 @@ def english_to_morse():
     #While loop for user input
     while True:
         #English input is set to an input telling the user to enter the English text
-        english_input = input("Enter English text (no spaces) or 'back' to return to the menu: ").lower()
+        english_input = input("Enter English text or 'back' to return to the menu: ").lower()
         #If english_input is "back"
         if english_input.lower() == "back":
             #Run menu
@@ -85,8 +85,8 @@ def english_to_morse():
                 morse_output += "/"
             #If char is in alphabet
             if char in alphabet:
-                #Morse output is added to the output string
-                morse_output += morse_code[alphabet.index(char)] + " "
+                #Morse output is added to the output string without giving errors for spaces
+                morse_output += morse_code[alphabet.index(char)]
             else:
                 morse_output += "?"
 
