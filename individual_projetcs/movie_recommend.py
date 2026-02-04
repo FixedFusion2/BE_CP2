@@ -3,6 +3,18 @@
 import csv
 #Giant movie list holding the CSV File in the list with separate parts in the dictionary
 movies = []
+#Load in CSV file into list.
+#Open the movies.csv file with utf-8 encoding
+with open("movies.csv", newline= "", encoding="utf-8") as csvfile:
+    #Reader is set to csv.DictReader(csvfile)
+    reader = csv.DictReader(csvfile)
+    #For row in reader, append row to movies list after converting Length (min) to int
+    for row in reader: 
+        #Convert Length (min) to int
+        row["Length (min)"] = int(row["Length (min)"])
+        #Add the row to the movies list
+        movies.append(row)
+
 #Main Menu Function
 def menu():
     #Print 1. Search/Get Recommendations
