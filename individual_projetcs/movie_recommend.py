@@ -5,15 +5,20 @@ import csv
 movies = []
 #Load in CSV file into list.
 #Open the movies.csv file with utf-8 encoding
-with open("movies.csv", newline= "", encoding="utf-8") as csvfile:
+with open("movies.csv", newline= "",encoding = "utf-8") as csvfile:
     #Reader is set to csv.DictReader(csvfile)
-    reader = csv.DictReader(csvfile)
-    #For row in reader, append row to movies list after converting Length (min) to int
-    for row in reader: 
-        #Convert Length (min) to int
-        row["Length (min)"] = int(row["Length (min)"])
-        #Add the row to the movies list
-        movies.append(row)
+    reader = csv.reader(csvfile)
+    #For each row in the reader, append the row to the movies list.
+    for row in reader:
+    #Show title, director, genre, rating, length(min), and notable actors.
+        movies.append({
+            "title": row["title"],
+            "director": row["director"],
+            "genre": row["genre"],
+            "rating": row["rating"],
+            "length(min)": row["length(min)"],
+            "notable actors": row["notable actors"]
+        })
 
 #Main Menu Function
 def menu():
@@ -34,18 +39,20 @@ def menu():
     #Else If the Menu Choice is 2, call the print_full_movie_list function.
     elif menu_choice == "2":
         #Call the print_full_movie_list function.
-        print_full_movie_list()
+        movie_list()
         #Return to the main menu after printing the full movie list.
         menu()
     #Else If the Menu Choice is 3, call the exit_program function.
     elif menu_choice == "3":
         #Call the exit_program function.    
-        exit_program()
+        exit()
         #Return to the main menu after exiting.
         menu()
     #Else exit program
     else:
         print("Invalid choice. Please select a valid option.")
 
-#Def Search Movies Function
-def search_movies():
+def movie_list():
+    print(movies)
+
+menu()
