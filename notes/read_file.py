@@ -1,10 +1,10 @@
 import csv
-#To open a file in your program you have to use the open() function
+"""#To open a file in your program you have to use the open() function
 with open("reading.txt", "r") as file:
     #Every time you refer to reading.txt it will be read as a file object.
     content = file.read()
     print(content)
-
+"""
 
 
 

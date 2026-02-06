@@ -1,26 +1,24 @@
 #TE 2nd Movie Recommender
 #Import CSV
 import csv
-#Giant movie list holding the CSV File in the list with separate parts in the dictionary
-movies = []
 #Load in CSV file into list.
-#Open the movies.csv file with utf-8 encoding
-with open("movies.csv", newline= "",encoding = "utf-8") as csvfile:
-    #Reader is set to csv.DictReader(csvfile)
-    reader = csv.reader(csvfile)
-    #For each row in the reader, append the row to the movies list.
-    for row in reader:
-    #Show title, director, genre, rating, length(min), and notable actors.
-        movies.append({
-            "title": row["title"],
-            "director": row["director"],
-            "genre": row["genre"],
-            "rating": row["rating"],
-            "length(min)": row["length(min)"],
-            "notable actors": row["notable actors"]
-        })
+#Open the movies.csv file
+def load_movies():
+    movies = []
+    try:
+        with open("movies.csv", "r") as csvfile:
+            #Reader is set to csv.reader(csvfile)
+            reader = csv.reader(csvfile)
+            #For each row in the reader, append the row to the movies list.
+            next(reader)
+            for row in reader:
+                movies.append(row)
+    except FileNotFoundError:
+        print("Error: movies.csv file not found.")
+    return movies
 
-#Main Menu Function
+load_movies()
+    #Main Menu Function
 def menu():
     #Print 1. Search/Get Recommendations
     print("1. Search/Get Recommendations")
@@ -52,7 +50,20 @@ def menu():
     else:
         print("Invalid choice. Please select a valid option.")
 
-def movie_list():
-    print(movies)
+#def movie_list():
+    #Print the full movie list.
+    #Print the movie list
 
-menu()
+#def search for a movie
+    #Ask user what they want to search by using choosing filters to apply (enter numbers separated by commas, e.g., 1,3):
+    #1. Genre
+    #2. Director
+    #3. Actor
+    #4. Length (min/max)
+    #search_by is set to an input asking the user to choose 1-4
+    #If search_by contains 1, ask the user to enter a genre to search for.
+    #Also If search_by contains 2, ask the user to enter a director to search for.
+    #Also If search_by contains 3, ask the user to enter an actor to search for.
+    #Also If search_by contains 4, ask the user to enter a minimum and maximum length (in minutes) to search for.
+    #Else print invalid choice and return to main menu
+
