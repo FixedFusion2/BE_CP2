@@ -111,12 +111,6 @@ def search_movies(movies):
     if "4" in selected:
         min_length = input("Enter minimum length (minutes) [press Enter to skip]: ").strip()
         max_length = input("Enter maximum length (minutes) [press Enter to skip]: ").strip()
-        
-        if min_input:
-            try: 
-                min_length = int(min_input)
-            except 
-
 
     #Initialize results list to an empty list.
     results = []
