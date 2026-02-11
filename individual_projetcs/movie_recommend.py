@@ -115,7 +115,13 @@ def search_movies(movies):
         if min_input:
             try: 
                 min_length = int(min_input)
-            except 
+            except ValueError:
+                print("Invalid minimun length.")
+        if max_input:
+            try:
+                max_length = int(max_input)
+            except ValueError:
+                print("Invalid maximum length.")
 
 
     #Initialize results list to an empty list.
@@ -123,11 +129,11 @@ def search_movies(movies):
     #for each movie in movies, unpack the movie into title, dir_name, genres, length, and actors. Convert length to an integer. Check if the movie matches the search criteria based on genre, director, actor, and length. If it matches, append the movie to the results list.
     for movie in movies:
         try:
-            title = movie[0]
-            dir_name = movie[1]
+            title = movie[0].lower()
+            dir_name = movie[1].lower()
             gen_text = movie[2]
             length = int(movie[4].strip())
-            actors = movie[5]
+            actors = movie[5].lower()
 
             match = True
 
@@ -149,6 +155,7 @@ def search_movies(movies):
             if match:
             #If all criteria are met, append the movie to results.
                 results.append(movie)
+                
         except(IndexError, ValueError):
             continue
     #Print the search results. If no movies are found, print a message indicating that no movies were found matching the criteria. Otherwise, print the title, genre, director, actors, and length of each movie in the results.
