@@ -17,4 +17,4 @@ with open("individual_projetcs\\library.csv", "a", newline = '') as csvfile:
     writer.writerow({'author': author, "book": book})
 
     library.append({"Title": book, "Author": author})
-    print("Library")
+    print(library)
