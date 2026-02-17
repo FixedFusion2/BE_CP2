@@ -1,7 +1,7 @@
 import csv
 import os
 # Store the path to the CSV file used to save the library
-file_path = "individual_projects/library.csv"
+file_path = "individual_projetcs/library.csv"
 # Define the column that names every item in the libary will use
 fieldnames = ["title", "creator", "year", "genre", "format", "rating", "notes"]
 
@@ -11,12 +11,13 @@ def load_library():
     library = []
     #Check if the file does not exsist
     if not os.path.exists(file_path):
-        #Open the file in write mode to create it
-        writer = csv.DictWriter(f, fieldnames = fieldnames)
-        #Write the header row to the CSV file
-        writer.writeheader()
-    #Return an empty library since no data exsists yet
-    return library
+        with open(file_path, "w", newline="", encoding = "utf-8") as f:
+            #Open the file in write mode to create it
+            writer = csv.DictWriter(f, fieldnames = fieldnames)
+            #Write the header row to the CSV file
+            writer.writeheader()
+        #Return an empty library since no data exsists yet
+        return library
 
     #Open the exsisting CSV file
     with open(file_path, "r", newline="", encoding= "utf-8") as f:
@@ -176,16 +177,16 @@ def main():
         if choice == "1":
             show_simple(library)
         #If the User wants a detailed list
-        if choice == "2":
+        elif choice == "2":
             show_detailed(library)
         #If the User wants to add an item
-        if choice == "3":
+        elif choice == "3":
             unsaved_changes |= add_item(library)
         #If the User wants to update an item
-        if choice == "4":
+        elif choice == "4":
             unsaved_changes |= update_item(library)
         #If the User wants to delete an item
-        if choice == "5":
+        elif choice == "5":
             unsaved_changes |= delete_item(library)
         #If the User wants to save
         elif choice == "6":
