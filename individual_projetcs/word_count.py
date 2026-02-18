@@ -1,5 +1,5 @@
 #OVERVIEW:
-#Write a program that look at a document that a user has written on and update it with the word count and a timestamp for when that wordcount was last updated
+#Write a program that looks at a document that a user has written on and update it with the word count and a timestamp for when that wordcount was last updated
 
 #REQUIREMENTS:
 #Uses at least 3 pages (main, file handling, and time handling) Note: main is the only file name I've given you
