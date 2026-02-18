@@ -43,3 +43,4 @@ colors.clear()#removes all items from a set
 colors.add("Yellow")#adds an item to a set
 colors.pop()#removes and returns an arbitrary item from a set
 #there are several more methods available for sets
+colors.add("Blue")
