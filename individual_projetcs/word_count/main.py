@@ -8,3 +8,22 @@
 #Lets the user tell what file to use it on
 #Uses good naming practices
 #Has good white space
+
+#Main Function
+    #While Loop
+        #1. Update Document Info
+        #2. View Document
+        #3. Add Content to Document
+        #4. Exit
+        #choice is set to a user input asking for them to choose 1-4.
+        #If choice is set to 1
+            #Run Update Document Info
+        #Elif choice is set to 2
+            #Run View Document
+        #Elif choice is set to 3
+            #Run Add Content to Document
+        #Elif choice is set to 4
+            #Print Exiting...
+            #Break
+
+#Run Main Function
