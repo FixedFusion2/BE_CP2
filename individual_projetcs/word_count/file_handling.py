@@ -1,10 +1,10 @@
 #Import CSV
 import csv
 
-#Update Document Info Function
+#Update Document Variable
 #Notes: Save changes to file
-def update_document():
-    document = input("Enter the exact file path for your document: ")
+print("\n---Document Editor---")
+document = input("\nEnter the exact file path for your document: ")
 
 #View Document Function
 #Notes: Use r mode to read the file, but not add anything to it.
@@ -24,3 +24,30 @@ def add_content(document):
     with open(document, 'a') as file:
         file.write(f"\n{content}")
     print("Content added.")
+
+#Main Function
+def main(document):
+    #While Loop
+    while True:
+        #1. View Document
+        print("1. View Document")
+        #2. Add Content to Document
+        print("2. Add Content to Document.")
+        #3. Exit
+        print("3. Exit")
+        #choice is set to a user input asking for them to choose 1-4.
+        choice = input("Choose 1-3: ")
+        #Elif choice is set to 2
+        if choice == "1":
+            #Run View Document
+            view_content(document)
+        #Elif choice is set to 3
+        elif choice == "2":
+            #Run Add Content to Document
+            add_content(document)
+        #Elif choice is set to 4
+        elif choice == "3":
+            #Print Exiting...
+            print('Exiting...')
+            #Break
+            break
