@@ -23,7 +23,10 @@ def add_content(document):
     #Open the file and append
     with open(document, 'a') as file:
         file.write(f"\n{content}")
+        words = content.split()
+        word_count = len(words)
     print("Content added.")
+    print(f"Word Count: {word_count}")
 
 #Main Function
 def main(document):
@@ -51,3 +54,5 @@ def main(document):
             print('Exiting...')
             #Break
             break
+
+main()
