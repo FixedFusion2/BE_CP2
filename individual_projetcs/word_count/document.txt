@@ -6,3 +6,27 @@ The ships name was a belly of tea.
 Soon may the wellerman come to bring us sugar and tea and rum.
 This is some more content added
 Hello, Hello, Hello!
+This is some words that I have added the document.
+This makes seventy words, lets hope it works.
+This is a test to see if the word count and timp stamp works.
+Word Count: 71Time Stamp: None
+
+Another test to see if timestamp and word count works.
+Word Count: 90
+Time Stamp: None
+
+test
+Word Count: 106
+Time Stamp: None
+
+I think this will work.
+Word Count: 113
+Time Stamp: 2026-02-23 09:33:54.098616
+
+It works!
+Word Count: 125
+Time Stamp: 2026-02-23 09:34:30.874499
+
+I wonder what the next project is in programming.
+Word Count: 134
+Time Stamp: 2026-02-23 09:35:28.924524

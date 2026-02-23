@@ -14,4 +14,4 @@ from file_handling import main, document
 
 
 #Run Main
-main()
+main(document)

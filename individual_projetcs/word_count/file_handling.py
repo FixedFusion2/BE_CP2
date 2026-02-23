@@ -1,10 +1,23 @@
 #Import CSV
 import csv
+from time_handling import current_datetime
 
 #Update Document Variable
 #Notes: Save changes to file
 print("\n---Document Editor---")
 document = input("\nEnter the exact file path for your document: ")
+
+#Def Count Word Function
+def count_words(document):
+    #Try
+    try:
+        #Open the document in read mode
+        with open(document, 'r') as file:
+            #Find the length as a string and break it into words with split
+            return len(file.read().split())
+    #Except file not found error tell the user that, file couldn't be counted,.
+    except FileNotFoundError:
+        print("Couldn't count words on file.")
 
 #View Document Function
 #Notes: Use r mode to read the file, but not add anything to it.
@@ -14,7 +27,6 @@ def view_content(document):
     with open(document, 'r') as file:
         readed = file.read()
         print(f"\n{readed}\n")
-
 #Add Content to Document Function
 #Notes: Use a mode to append and r mode to read the updated document info.
 def add_content(document):
@@ -23,10 +35,9 @@ def add_content(document):
     #Open the file and append
     with open(document, 'a') as file:
         file.write(f"\n{content}")
-        words = content.split()
-        word_count = len(words)
-    print("Content added.")
-    print(f"Word Count: {word_count}")
+        file.write(f"\nWord Count: {count_words(document)}")
+        file.write(f"\nTime Stamp: {current_datetime}\n")
+    print("Content added.\n")
 
 #Main Function
 def main(document):
@@ -54,5 +65,3 @@ def main(document):
             print('Exiting...')
             #Break
             break
-
-main()
