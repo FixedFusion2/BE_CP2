@@ -1,3 +1,4 @@
+
 import pygame
 import sys
 from enum import Enum
@@ -36,7 +37,7 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_RIGHT]:
             self.vel_x = 5
             self.state = PlayerState.RUNNING
-        if keys[pygame.K_SPACE] and self.on_ground:
+        if keys[pygame.K_UP] and self.on_ground:
             self.vel_y = JUMP_STRENGTH
             self.state = PlayerState.JUMPING
             self.on_ground = False
