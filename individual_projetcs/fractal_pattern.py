@@ -36,6 +36,7 @@ for i in range(3):
 # Draw one filled triangle
 def draw_triangle(t, size, color):
     # 1. Set the fill color
+    color = input("Choose")
     # 2. Begin filling
     # 3. Use a loop to draw 3 sides
     # 4. End filling
