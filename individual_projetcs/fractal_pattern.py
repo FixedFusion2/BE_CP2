@@ -3,45 +3,27 @@ import turtle
 
 turtle.setup(width=2000, height=1000)
 
-t = turtle.Turtle()
-t.speed(10000000000000000000000000000000000000000000000000000000000000000)
+#Set the fill color
+background_color = input("Type the background color you want: ")
+triangle_color = input("Type the color you want the triangle: ")
 screen = turtle.Screen()
-
-t.color("blue")
-
+t = turtle.Turtle()
+#Begin filling
+screen.bgcolor(background_color)
+t.color(triangle_color)
+#Use a loop to draw 3 sides
 for i in range(3):
-    t.forward(300)
+    t.forward(500)
     t.left(120)
 for i in range(3):
-    t.forward(200)
+    t.forward(250)
     t.left(120)
 for i in range(3):
-    t.forward(100)
+    t.forward(125)
     t.left(120)
 for i in range(3):
-    t.forward(50)
+    t.forward(62.5)
     t.left(120)
-for i in range(3):
-    t.forward(25)
-    t.left(120)
-for i in range(3):
-    t.forward(12.5)
-    t.left(120)
-for i in range(3):
-    t.forward(6.25)
-    t.left(120)
-
-
-
-# Draw one filled triangle
-def draw_triangle(t, size, color):
-    # 1. Set the fill color
-    color = input("Choose")
-    # 2. Begin filling
-    # 3. Use a loop to draw 3 sides
-    # 4. End filling
-    
-    pass
-
-
+#End filling
 turtle.done()
+
