@@ -1,11 +1,11 @@
 #TE 2nd Fractal Pattern Generator
 import turtle
 
-turtle.setup(width=2000, height=1000)
 
 #Set the fill color
 background_color = input("Type the background color you want: ")
 triangle_color = input("Type the color you want the triangle: ")
+turtle.setup(width=2000, height=1000)
 screen = turtle.Screen()
 t = turtle.Turtle()
 #Begin filling
