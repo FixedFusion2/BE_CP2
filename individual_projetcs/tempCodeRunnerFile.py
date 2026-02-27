@@ -1,2 +1,2 @@
 
-t.forward(25)
+        t.setpos(0,0)
