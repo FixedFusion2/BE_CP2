@@ -1,16 +1,20 @@
 
 # Fractal Pattern Generator
 ***
-![Image of code while running](location of image in folders)
-This project uses recursion with turtle to create Sierpinskis Triangle.
+This project uses recursion with turtle to create a Sierpinski Triangle.
 
 ## How to use
 ***
 1. Click Run
 2. Enter in recursion depth (How deep you want the triangle fratcal)
+3. Enter in color
 3. Click on the Screen to exit
 
 ## Details on Project features
 ***
-- All key features in your repository with a detailed description
-- This list frequently will include emojis
+- Generates a sierpinski triangle fractal using recursion
+- You can choose recursion depth
+- You can choose triangle color
+- Uses Python Turtle graphics
+- Automatically positions the triangle neatly on the screen
+- Clean console messages guiding user through the program
