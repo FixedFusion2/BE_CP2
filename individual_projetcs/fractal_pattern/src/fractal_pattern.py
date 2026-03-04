@@ -58,7 +58,7 @@ def main():
     print('\nGenerating Sierpinski Triangle...')
     #Setup screen and turtle
     screen = turtle.Screen()
-    screen.setup(1000,800)
+    screen.setup(2000,1000)
     #t is set to a turtle
     t = turtle.Turtle()
     t.speed(0) # Set turtle speed to maximum
