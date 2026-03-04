@@ -53,7 +53,7 @@ def main():
     #Print  Welcome to the Sierpinski triangle generator. This program makes a fractal using recursion.
     print("Welcome to the Sierpinski triangle generator. This program makes a fractal using recursion.")
     #Depth is set to an input asking for the user to enter recursion depth 1-5, get depth as an integer.
-    depth = int(input("Enter recursion depth(1-5): "))
+    depth = int(input("Enter recursion depth(0-5): "))
     color = input("Enter triangle color: ")
     print('\nGenerating Sierpinski Triangle...')
     #Setup screen and turtle
@@ -71,5 +71,6 @@ def main():
     print('Fractal generation complete!')
     print('Click on the window to exit.')
     screen.exitonclick() # Wait for user to click before closing the window
+
 #Run Main()
 main()
