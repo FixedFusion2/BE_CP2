@@ -12,39 +12,6 @@
 #Triangle color
 #HINT: Remember to implement a base case in your recursive function to prevent infinite recursion!
 #HINT: Use thins image to help you think about HOW to draw this with turtle!
-
-import turtle
-
-def main():
-    #Print  Welcome to the Sierpinski triangle generator. This program makes a fractal using recursion.
-    print("Welcome to the Sierpinski triangle generator. This program makes a fractal using recursion.")
-    #Depth is set to an input asking for the user to enter recursion depth 1-5.
-    depth = input("Enter recursion depth(1-5): ")
-    #t is set to a turtle
-    t = turtle.Turtle()
-    screen = turtle.Screen()
-    screen.setup(2000,1000)
-    #Print Generator triangle
-    print('Generating Triangle...')
-    #Run Triangle Generator(depth)
-    fractal_triangle(t,screen,depth)
-
-
-#TE 2nd Fractal Pattern Generator
-
-#OVERVIEW:
-#Create a Python program that generates a Sierpinski Triangle fractal pattern using recursion. The program should allow users to customize the recursion depth and color of the fractal.
-
-#PROJECT STEPS:
-#Implement a main function that runs the program and handles user input
-#Create a function to draw the Sierpinski Triangle using recursion
-#Use Python's turtle graphics module for drawing
-#Allow users to specify:
-#Recursion depth (1-5)
-#Triangle color
-#HINT: Remember to implement a base case in your recursive function to prevent infinite recursion!
-#HINT: Use thins image to help you think about HOW to draw this with turtle!
-
 import turtle
 
 #Def Fractal Triangle()
