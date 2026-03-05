@@ -40,7 +40,7 @@ class Player(pygame.sprite.Sprite):
             self.vel_x = -PLAYER_SPEED
         if keys[pygame.K_RIGHT]:
             self.vel_x = PLAYER_SPEED
-        if keys[pygame.K_SPACE] and self.on_ground:
+        if keys[pygame.K_UP] and self.on_ground:
             self.vel_y = JUMP_STRENGTH
             self.on_ground = False
 
