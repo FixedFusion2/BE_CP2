@@ -5,11 +5,11 @@ import sys
 pygame.init()
 
 # Constants
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 2000
+SCREEN_HEIGHT = 1000
 FPS = 60
 GRAVITY = 0.6
-JUMP_STRENGTH = -15
+JUMP_STRENGTH = -20
 PLAYER_SPEED = 5
 ENEMY_SPEED = 2
 
@@ -127,7 +127,7 @@ def generate_level(level_num):
     platforms.add(Platform(0, SCREEN_HEIGHT - 40, SCREEN_WIDTH, 40))
     
     # Random platforms
-    for _ in range(6 + level_num):
+    for _ in range(20 + level_num):
         x = random.randint(0, SCREEN_WIDTH - 100)
         y = random.randint(100, SCREEN_HEIGHT - 150)
         w = random.randint(80, 150)
