@@ -1,0 +1,21 @@
+
+Shape = Circle
+Circle Name = circle1
+Circle Radius = 5.0 units
+Area = 78.54 units squared
+Perimeter = 31.42 units
+Diameter = 10.0 units
+
+Shape = Triangle
+Triangle Name = triangle1
+Area = 12.5 units squared
+
+Shape = Rectangle
+Rectangle Name = rectangle1
+Area = 25.0 units squared
+Perimeter = 20.0 units
+
+Shape = Square
+Square Name = square1
+Area = 25.0 units squared
+Perimeter = 20.0 units
