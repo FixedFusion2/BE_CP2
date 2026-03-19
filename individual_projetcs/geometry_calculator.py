@@ -54,3 +54,34 @@ def square_calc():
     perimeter = (base*2) + (height*2)
     print(f"Your square, {name}, has an area of {area} units squared, and a perimeter of {perimeter} units.")
 
+def menu():
+    print("=====================================")
+    print("\n📐 GEOMETRY CALCULATOR 📐")
+    print("=====================================")
+    print("Current Shapes: 0 created")
+    print("🎯 ACTIONS:")
+    print("[1] Create New Shape")
+    print("[2] View All Shapes")
+    print("[3] Select Shape")
+    print("[4] Compare Shapes")
+    print("[5] Sort Shapes")
+    print("[6] Formula Guide")
+    print("[7] Quit")
+
+    choice = input("Choose your option (1-7): ")
+
+    if choice == "1":
+        print("1. Circle\n2. Triangle\n3. Rectangle\n4. Square")
+        shape = input("Choose your option (1-4): ")
+        if shape == "1":
+            circle_calc()
+        elif shape == "2":
+            triangle_calc()
+        elif shape == "3":
+            rectangle_calc()
+        elif shape == "4":
+            square_calc()
+        else:
+            print("That is not an option.")
+
+menu()
