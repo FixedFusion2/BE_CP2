@@ -1,30 +1,25 @@
 
 # Geometry Calculator
 ***
-![Image of code while running](location of image in folders)
-Paragraph description of your project
+This Geometry calculator uses classes to store inputs, run calculations, and print the result.
+The program also uses a CSV file to save the various shapes created in the program.
 
 ## How to use
 ***
-1. Step by step instructions
-2. Detailing how to run your project
-3. Including a list of any libraries that need to be downloaded
+1. Run code
+2. Select an option from the menu
+3. Quit from menu when done
 
 ## Details on Project features
 ***
-- All key features in your repository with a detailed description
-- This list frequently will include emojis
-
-## Installation Instructions
-***
-Notes being used in this class, but if you have a full file (.exe) for your project, this is where setup instructions go.
+- Uses classes
+- Uses csv
+- Uses math
+- Uses os
 
 ## Lisence
 ***
 Anything made for school has no copyright
 
 ## Contributors
-- github usernames foa all members of the group
-
-## Contribute
-Not being used for this class. Instructions for how to submit change to the repository if it is open source.
+- True Eggleston

@@ -24,6 +24,9 @@ class Circle:
         print(f"Perimeter = {self.perimeter()} units")
         print(f"Diameter = {self.radius*2} units\n")
 
+        content = f"\nShape = Circle\nName = {self.name}\nRadius = {self.radius} units\nArea = {self.area()} units squared\nPerimeter = {self.perimeter()}\nDiameter = {self.radius*2} units\n"
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
+            file.write(content)
     #Static method to display formulas for circle calculations
     @staticmethod
     #This method is static because it does not depend on any instance of the Circle class. It simply prints out the formulas for calculating the area, perimeter, and diameter of a circle.
@@ -32,7 +35,8 @@ class Circle:
         print("Circle: Area = π * r^2 | Perimeter = 2 * π * r | Diameter = 2 * r")
 #Triangle class with methods to calculate area
 class Triangle:
-    def __init__(self, base, height):
+    def __init__(self, base, height,name):
+        self.name = name
         self.base = base
         self.height = height
     def area(self):
@@ -44,6 +48,9 @@ class Triangle:
         print(f"Height = {self.height} units")
         print(f"Area = {self.area()} units squared\n")
 
+        content = f"\nShape = Triangle\nName = {self.name}\nBase = {self.base} units\nHeight = {self.height} units\nArea = {self.area()}\n"
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
+            file.write(content)
     #Static method to display formulas for triangle calculations
     @staticmethod
     def formula():
@@ -51,7 +58,7 @@ class Triangle:
         print("Triangle: Area = (base * height) / 2")
 #Rectangle class with methods to calculate area and perimeter        
 class Rectangle:
-    def __init__(self, base, height):
+    def __init__(self, base, height,name):
         self.base = base
         self.height = height
         self.name = name
@@ -68,6 +75,9 @@ class Rectangle:
         print(f"Area = {self.area()} units squared")
         print(f"Perimeter = {self.perimeter()} units\n")
 
+        content = f"\nShape = Rectangle\nName = {self.name}\nBase = {self.base} units\nHeight = {self.height} units\nArea = {self.area()}\nPerimeter = {self.perimeter()} units\n"
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
+            file.write(content)
     #Static method to display formulas for rectangle calculations
     @staticmethod
     def formula():
@@ -76,7 +86,7 @@ class Rectangle:
         
 
 class Square:
-    def __init__(self, base, height):
+    def __init__(self, base, height,name):
         self.base = base
         self.height = height
         self.name = name
@@ -91,7 +101,10 @@ class Square:
         print(f"Height = {self.height} units")
         print(f"Area = {self.area()} units squared")
         print(f"Perimeter = {self.perimeter()} units\n")
-    
+        
+        content = f"\nShape = Rectangle\nName = {self.name}\nBase = {self.base} units\nHeight = {self.height} units\nArea = {self.area()}\nPerimeter = {self.perimeter()} units\n"
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
+            file.write(content)
     #Static method to display formulas for square calculations
     @staticmethod
     def formula():
@@ -99,7 +112,6 @@ class Square:
         print("Square: Area = base * height | Perimeter = 2 * (base + height)")
 #Global Shape list
 shapes = []
-
 #Functions for each shape calculation and menu display
 #Circle Calculation.
 def circle_calc():
@@ -176,7 +188,6 @@ def view_shapes():
         return
     for i, shape in enumerate(shapes):
         print(f"[{i}] {shape.name}")
-        shape.display()
 #Compare Function.
 def compare_shapes():
     #If the length of shapes is less than 2, print a message and return.
@@ -263,11 +274,11 @@ def menu():
             if shape_choice == "1":
                 circle_calc()
             elif shape_choice == "2":
-                triangle_calc()
-            elif shape_choice == "3":
                 rectangle_calc()
-            elif shape_choice == "4":
+            elif shape_choice == "3":
                 square_calc()
+            elif shape_choice == "4":
+                triangle_calc()
             else:
                 print("Invalid option.")
         #If choice is set to 2 view all shapes.
