@@ -24,9 +24,9 @@ class Circle:
         print(f"Perimeter = {self.perimeter()} units")
         print(f"Diameter = {self.radius*2} units\n")
 
-        content = f"\nShape = Circle\nName = {self.name}\nRadius = {self.radius} units\nArea = {self.area()} units squared\nPerimeter = {self.perimeter()}\nDiameter = {self.radius*2} units\n"
-        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
-            file.write(content)
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["Circle", self.name, self.radius])
     #Static method to display formulas for circle calculations
     @staticmethod
     #This method is static because it does not depend on any instance of the Circle class. It simply prints out the formulas for calculating the area, perimeter, and diameter of a circle.
@@ -48,9 +48,9 @@ class Triangle:
         print(f"Height = {self.height} units")
         print(f"Area = {self.area()} units squared\n")
 
-        content = f"\nShape = Triangle\nName = {self.name}\nBase = {self.base} units\nHeight = {self.height} units\nArea = {self.area()}\n"
-        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
-            file.write(content)
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["Triangle", self.name, self.base, self.height])
     #Static method to display formulas for triangle calculations
     @staticmethod
     def formula():
@@ -75,9 +75,9 @@ class Rectangle:
         print(f"Area = {self.area()} units squared")
         print(f"Perimeter = {self.perimeter()} units\n")
 
-        content = f"\nShape = Rectangle\nName = {self.name}\nBase = {self.base} units\nHeight = {self.height} units\nArea = {self.area()}\nPerimeter = {self.perimeter()} units\n"
-        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
-            file.write(content)
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["Rectangle", self.name, self.base, self.height])
     #Static method to display formulas for rectangle calculations
     @staticmethod
     def formula():
@@ -102,9 +102,9 @@ class Square:
         print(f"Area = {self.area()} units squared")
         print(f"Perimeter = {self.perimeter()} units\n")
         
-        content = f"\nShape = Rectangle\nName = {self.name}\nBase = {self.base} units\nHeight = {self.height} units\nArea = {self.area()}\nPerimeter = {self.perimeter()} units\n"
-        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a") as file:
-            file.write(content)
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["Square", self.name, self.base, self.height])
     #Static method to display formulas for square calculations
     @staticmethod
     def formula():
@@ -112,6 +112,35 @@ class Square:
         print("Square: Area = base * height | Perimeter = 2 * (base + height)")
 #Global Shape list
 shapes = []
+
+#Load Shapes function.
+def load_shapes():
+    #Try and except for filenotfound error.
+    try:
+        with open("individual_projetcs\\geometry_calculator\\docs\\shapes.csv", "r") as file:
+            reader = csv.reader(file)
+            #Loop through each row in the CSV file and create the corresponding shape object based on the shape type.
+            for row in reader:
+                if not row:
+                    continue
+                #Share type is the first element in each row, which indicates the type of shape (Circle, Triangle, Rectangle, Square).
+                share_type = row[0]
+                #Check the share_types.
+                if share_type == "Circle":
+                    _, name, radius = row
+                    shapes.append(Circle(float(radius), name))
+                elif share_type == "Triangle":
+                    _, name, base, height = row
+                    shapes.append(Triangle(float(base), float(height), name))
+                elif share_type == "Rectangle":
+                    _, name, base, height = row
+                    shapes.append(Rectangle(float(base), float(height), name))
+                elif share_type == "Square":
+                    _, name, base, height = row
+                    shapes.append(Square(float(base), float(height), name))
+            
+    except FileNotFoundError:
+        print("No saved shapes found.")
 #Functions for each shape calculation and menu display
 #Circle Calculation.
 def circle_calc():
@@ -126,8 +155,8 @@ def circle_calc():
         c = Circle(radius,name)
         shapes.append(c)
         c.display()
-    except:
-        print("Error: Invalid input.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 #Triangle Calculation.
 def triangle_calc():
@@ -140,11 +169,11 @@ def triangle_calc():
         if base <= 0 or height <= 0:
             print("Error: Must be positive.")
             return
-        t = Triangle(base,height)
+        t = Triangle(base,height,name)
         shapes.append(t)
         t.display()
-    except:
-        print("Error: Invalid input.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 #Rectangle Calculation.    
 def rectangle_calc():
@@ -157,11 +186,12 @@ def rectangle_calc():
         if base <= 0 or height <= 0:
             print("Error: Must be positive.")
             return
-        r = Rectangle(base,height)
+        
+        r = Rectangle(base,height,name)
         shapes.append(r)
         r.display()
-    except:
-        print("Error: Invalid input.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 #Square Calculation.        
 def square_calc():
@@ -173,11 +203,11 @@ def square_calc():
         if base <= 0 or height <= 0:
             print("Error: Must be positive.")
             return
-        s = Square(base,height)
+        s = Square(base,height,name)
         shapes.append(s)
         s.display()
-    except:
-        print("Error: Invalid input.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 #Functions for view, compare, and sort.
 #View Shapes function.
@@ -188,6 +218,8 @@ def view_shapes():
         return
     for i, shape in enumerate(shapes):
         print(f"[{i}] {shape.name}")
+        #Call the display method for each shape to show its details.
+        shape.display()
 #Compare Function.
 def compare_shapes():
     #If the length of shapes is less than 2, print a message and return.
@@ -234,7 +266,7 @@ def sort_shapes():
         return
     #Loop through the sorted shapes and display each shape's name and details.
     print("Sorted Shapes:")
-    for s in shapes:
+    for s in sorted_shapes:
         s.display()
 
 #Formula Guide Function.
@@ -254,7 +286,7 @@ def menu():
         print("=====================================")
         print("📐 GEOMETRY CALCULATOR 📐")
         print("=====================================")
-        print("Current Shapes: 0 created")
+        print(f"Current Shapes: {len(shapes)} created")
         print("🎯 ACTIONS:")
         print("[1] Create New Shape")
         print("[2] View All Shapes")
