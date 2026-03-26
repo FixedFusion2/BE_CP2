@@ -7,6 +7,7 @@ class Student:
         self.id = id
         self.grades = grades
 
+
 #Menu Function
 def menu():
     #While loop to keep going until told to stop
