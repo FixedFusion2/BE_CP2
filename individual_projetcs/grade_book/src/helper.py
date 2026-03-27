@@ -46,6 +46,8 @@ def add_new():
     input("Press Enter to continue..")
 
 #Add Grade to Student Function
+def add_grade():
+    print("Add Grades")
 #View Student Record Function
 #View All Students Function
 #Class Summary Function
