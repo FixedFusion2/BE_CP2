@@ -87,6 +87,7 @@ class Gradebook:
 
     #Add grade to student function
     def add_grade_to_student(self):
+        #Check if there are any students in the gradebook before trying to add a grade
         if not self.students:
             print("❌ No students in the gradebook. Add students first.")
             input("Press Enter to continue...")
@@ -95,18 +96,71 @@ class Gradebook:
         print("=====================================")
         print("📝 ADD GRADE 📝")
         print("Current Students: ")
+        #List all students with their names and IDs to help the user select the correct student to add a grade for
         for s in self.students:
             print(f"- {s.name} (ID: {s.id})")
 
+        #Prompt the user to enter the student ID for the student they want to add a grade for, then find that student in the students list
         student_id = input("Enter the student ID to add a grade: ")
         student = next((s for s in self.students if s.id == student_id), None)
+        #If the student ID is not found in the students list, inform the user and return to the main menu
         if not student:
             print("❌ Student ID not found.")
             input("Press Enter to continue...")
             return
-        
+        #Try to get a valid grade.
         try:
-            
+            grade = float(input("Enter the grade to add (0-100): "))
+            if grade < 0 or grade > 100:
+                raise ValueError
+        #If the user enters an invalid grade (not a number or out of range), inform the user and return to the main menu
+        except ValueError:
+            print("❌ Invalid grade. Must be 0 and 100.")
+            input("Press Enter to continue...")
+            return
+        #Add the grades to the students record and display it. Then save the updated students list to the CSV file
+        student.add_grade(grade)
+        self.save_students()
+        print(f"✅ Grade added successfully! {student.name} now has {len(student.grades)} grade(s)")
+        print(f"Current Average: {student.get_average():.2f} ({student.get_letter_grade()})")
+        input("Press Enter to continue...")
+    
+    #View student record function
+    def view_student_record(self):
+        #Check if there are any students in the gradebook before trying to view a student record
+        if not self.students:
+            print("❌ No students in the gradebook. Add students first.")
+            input("Press Enter to continue...")
+            return
+        #Prompt the user to enter the student ID for the student they want to view the record for, then find that student in the students list
+        student_id = input("Enter the student ID to view record: ")
+        student = next((s for s in self.students if s.id == student_id), None)
+        #If the student ID is not found in the students list, inform the user and return to the main menu
+        if not student:
+            print("❌ Student not found.")
+            #If the student is found, display their name, ID, grades, average grade, and letter grade. If the student has no grades yet, indicate that as well
+        else:
+            print("=====================================")
+            print(f"📋 RECORD FOR {student.name} 📋")
+            #If the student has grades, display them along with the average and letter grade. If not, indicate that there are no grades yet
+            if student.grades:
+                #Display the grades as a comma-separated list.
+                print(f"Grades: {", ".join(str(g) for g in student.grades)}")
+                print(f"Average: {student.average_grade():.2f} ({student.letter_grade()})")
+            else:
+                print("Grades: None yet")
+        input("Press Enter to continue...")
+
+        #View all students function
+    def view_all_students(self):
+        if not self.students:
+            print("❌ No students yet.")
+            input("Press Enter to continue...")
+            return
+        print("=====================================")
+        print("👥 ALL STUDENTS 👥")
+        print("┌───────────────────────────────┐")
+
 #Menu Function
 def menu():
     #While loop to keep going until told to stop
