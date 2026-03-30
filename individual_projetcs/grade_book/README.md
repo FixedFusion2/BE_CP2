@@ -1,7 +1,6 @@
-# Name of your project
+# Simple Gradebook
 ***
-![Image of code while running](location of image in folders)
-Paragraph description of your project
+My Simple Gradebook uses classes
 
 ## How to use
 ***
