@@ -1,28 +1,22 @@
 # Simple Gradebook
 ***
-My Simple Gradebook uses classes
+My Simple Gradebook uses classes to organize students, their grades, and their id's. It then uses functions to do grade calculations and check for inputs. It also uses CSV files to store the students and their information.
 
 ## How to use
 ***
-1. Step by step instructions
-2. Detailing how to run your project
-3. Including a list of any libraries that need to be downloaded
+1. Run Project.
+2. Use menu to choose what to do.
+3. Exit using the menu (or close tab).
 
 ## Details on Project features
 ***
-- All key features in your repository with a detailed description
-- This list frequently will include emojis
-
-## Installation Instructions
-***
-Notes being used in this class, but if you have a full file (.exe) for your project, this is where setup instructions go.
+- CSV file for grades
+- Classes to organize student data
+- Functions to run calculations
 
 ## Lisence
 ***
 Anything made for school has no copyright
 
 ## Contributors
-- github usernames foa all members of the group
-
-## Contribute
-Not being used for this class. Instructions for how to submit change to the repository if it is open source.
+- True Eggleston
