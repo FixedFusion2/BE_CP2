@@ -119,10 +119,10 @@ class Gradebook:
             input("Press Enter to continue...")
             return
         #Add the grades to the students record and display it. Then save the updated students list to the CSV file
-        student.add_grade(grade)
+        student.add_grades(grade)
         self.save_students()
         print(f"✅ Grade added successfully! {student.name} now has {len(student.grades)} grade(s)")
-        print(f"Current Average: {student.get_average():.2f} ({student.get_letter_grade()})")
+        print(f"Current Average: {student.average_grade():.2f} ({student.letter_grade()})")
         input("Press Enter to continue...")
     
     #View student record function
@@ -145,7 +145,7 @@ class Gradebook:
             #If the student has grades, display them along with the average and letter grade. If not, indicate that there are no grades yet
             if student.grades:
                 #Display the grades as a comma-separated list.
-                print(f"Grades: {", ".join(str(g) for g in student.grades)}")
+                print(f"Grades: {', '.join(str(g) for g in student.grades)}")
                 print(f"Average: {student.average_grade():.2f} ({student.letter_grade()})")
             else:
                 print("Grades: None yet")
@@ -153,6 +153,7 @@ class Gradebook:
 
         #View all students function
     def view_all_students(self):
+        #Check if there are any students in the gradebook before trying to view all students
         if not self.students:
             print("❌ No students yet.")
             input("Press Enter to continue...")
@@ -160,9 +161,39 @@ class Gradebook:
         print("=====================================")
         print("👥 ALL STUDENTS 👥")
         print("┌───────────────────────────────┐")
+        print("│ ID    │ Name           │ Avg  │ Grade│")
+        print("├───────┼────────────────┼──────┼──────┤")
+        #For each student in the students list, display their ID, name, average grade, and letter grade in a formatted table
+        for s in self.students:
+            avg = s.average_grade()
+            letter = s.letter_grade()
+            #Format the output to align columns properly.
+            print(f"│ {s.id:<5} │ {s.name:<14} │ {avg:<5.2f} │ {letter:^5} │")
+        print("└───────────────────────────────┘")
+        print(f"\nTotal Students: {len(self.students)}")
+        input("Press Enter to continue...")
+
+    #Class summary: overall average
+    def class_summary(self):
+        #Check if there are any students in the gradebook before trying to view the class summary
+        if not self.students:
+            print("❌ No students yet.")
+            input("Press Enter to continue...")
+            return
+        #Total Grades is the sum of all grades for all students.
+        total_grades = sum(sum(s.grades) for s in self.students)
+        #Total Count is the total number of grades for all students. This is calculated by summing the length of the grades list for each student.
+        total_count = sum(len(s.grades) for s in self.students)
+        #Class Average calculations
+        class_avg = total_grades / total_count if total_count > 0 else 0
+        print("=====================================")
+        print("📊 CLASS SUMMARY 📊")
+        print(f"Number of Students: {len(self.students)}")
+        print(f"Class Average: {class_avg:.2f}")
+        input("Press Enter to continue...")
 
 #Menu Function
-def menu():
+def menu(gradebook):
     #While loop to keep going until told to stop
     while True:
         print("=====================================")
@@ -179,28 +210,22 @@ def menu():
 
         choice = input("Enter your choice (1-6): ")
         if choice == "1":
-            add_new()
+            gradebook.add_student()
+        elif choice == "2":
+            gradebook.add_grade_to_student()
+        elif choice == "3":
+            gradebook.view_student_record()
+        elif choice == "4":
+            gradebook.view_all_students()
+        elif choice == "5":
+            gradebook.class_summary()
         elif choice == "6":
-            print("Exiting...")
+            print("Goodbye!")
             break
-
-#Add New Student Function
-def add_new():
-    print("=====================================")
-    print("➕ ADD NEW STUDENT ➕")
-    student_name = input("Enter student name: ")
-    student_id = input("Enter student ID: ")
-    with open("individual_projetcs\\grade_book\\docs\\grades.csv", "a",newline="") as file:
-        file.write(student_name, student_id)
-    print("✅ Student added successfully!")
-    print(f"Name: {student_name}")
-    print(f"ID: {student_id}")
-    print("Grades: None yet")
-    input("Press Enter to continue..")
-
-#Add Grade to Student Function
-def add_grade():
-    print("Add Grades")
-#View Student Record Function
-#View All Students Function
-#Class Summary Function
+        else:
+            print("❌ Invalid choice. Please enter a number between 1 and 6.")
+            input("Press Enter to continue...")
+#Check if the script is being run directly (instead of imported as a module), and if so, create a Gradebook instance and start the menu loop
+if __name__ == "__main__":
+    gradebook = Gradebook("individual_projetcs//grade_book//docs//grades.csv")
+    menu(gradebook)
