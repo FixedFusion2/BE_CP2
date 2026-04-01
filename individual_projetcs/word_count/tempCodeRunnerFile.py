@@ -1,1 +1,0 @@
-print(count_words('your_file.txt'))
