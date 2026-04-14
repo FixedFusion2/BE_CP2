@@ -1,4 +1,4 @@
-# Name of your project
+# Personal Portfolio
 ***
 ![Image of code while running](src/code.png)
 This project is a personal portfolio showing some of my past projects. 
