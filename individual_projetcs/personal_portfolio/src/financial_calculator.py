@@ -233,7 +233,7 @@ def tip_calculator():
     #format print statement showing tip
     print(f"The tip amount is: ${tip:.2f}")
 #Main Loop Function
-def main_loop():
+def main_run():
     while True:
         print("\nFinancial Calculator Menu")
         #Display options
@@ -259,4 +259,5 @@ def main_loop():
             return
         else:
             print("Invalid choice. Please try again.")
-main_loop()
+main_run()
+

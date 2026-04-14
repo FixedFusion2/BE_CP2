@@ -4,7 +4,7 @@ alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
 #List for morse code
 morse_code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
 #Menu Function
-def menu():
+def main_menu():
     while True:
         #Print 1. Translate for Morse Code to English
         print("1. Translate for Morse Code to English")
@@ -101,4 +101,5 @@ def english_to_morse():
         #Print Morse output
         print("Morse code translation:", morse_output.strip())
 #Start the program by calling the menu function
-menu()
+main_menu()
+

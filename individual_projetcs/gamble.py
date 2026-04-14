@@ -186,7 +186,7 @@ def play_high_card(chips):
     pause()
     return chips
 
-def main():
+def main_game():
     chips = STARTING_CHIPS
     while True:
         print_header(chips)
@@ -217,7 +217,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        main_game()
     except KeyboardInterrupt:
         print("\n\nInterrupted. Goodbye.")
         sys.exit(0)
