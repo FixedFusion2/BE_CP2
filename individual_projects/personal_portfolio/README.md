@@ -1,6 +1,6 @@
 # Name of your project
 ***
-![Image of code while running](individual_projetcs\personal_portfolio\src\gui.png)
+![Image of code while running](gui.png)
 This project is a personal portfolio showing some of my past projects. 
 It uses Python and Tkinter to create a central Hub where some of my favorite projects can be ran.
 It also uses a function that uses subprocess, os, and sys to be able to run on mac and linux.
