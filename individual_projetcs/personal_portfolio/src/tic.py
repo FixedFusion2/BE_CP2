@@ -1,11 +1,4 @@
-tic.py is clean — no bare function call at the bottom. ✓
-But it has two bugs that will cause problems:
-
-exit() in restart() — kills your entire GUI
-game() is never called at the end of tic_tac_toe() — the game never actually starts
-
-Here's the fixed file:
-pythonimport time
+import time
 import random
 
 def tic_tac_toe():
@@ -22,7 +15,7 @@ def tic_tac_toe():
         nonlocal board
         play = input("\nWant to play again? (Say lowercase yes or no.) ")
         if play == "no":
-            return  # ← Fixed: was exit(), which kills your entire GUI
+            return
         else:
             board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
             game()
@@ -101,7 +94,7 @@ def tic_tac_toe():
             space_check(computerChoice, "O")
             win()
 
-    game()  # ← Fixed: was missing, so the game never started
+    game()
 
 if __name__ == "__main__":
     tic_tac_toe()
